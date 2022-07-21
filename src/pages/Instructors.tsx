@@ -30,8 +30,8 @@ type CategoryWithTests = {
   category: {
     id: number;
     name: string;
-    tests: TestWithDiscipline[]
-  }
+  },
+  tests: TestWithDiscipline[]
 }
 
 type TestWithDiscipline = {
@@ -134,7 +134,7 @@ type CategoryProps = {
 }
 
 function Category({category}: CategoryProps) {
-  const {category: {name, tests}} = category;
+  const {category: {name}, tests} = category;
   return (
     <>
       <Box sx={{ marginBottom: "8px" }}>

@@ -136,8 +136,8 @@ interface CategoryProp {
   category: {
     id: number;
     name: string;
-    tests: TestProp[];
-  }
+  },
+  tests: TestProp[];
 }
 
 interface TestsProp {
@@ -161,10 +161,10 @@ function Categories({categories}: CategoriesProps) {
   return (
     <>
       {categories.map((categoryItem) => {
-          const category = categoryItem.category;
-          return (<Box key={category.id}>
-            <Typography fontWeight="bold">{category.name}</Typography>
-            <Tests tests={category.tests} />
+          const {category: {id, name}, tests} = categoryItem;
+          return (<Box key={id}>
+            <Typography fontWeight="bold">{name}</Typography>
+            <Tests tests={tests} />
           </Box>)
         })}
     </>
