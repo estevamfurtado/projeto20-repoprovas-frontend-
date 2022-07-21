@@ -84,9 +84,6 @@ async function getTestsByDiscipline(token: string) {
   );
 }
 
-
-
-
 async function getTestsByTeacher(token: string) {
   const config = getConfig(token);
   return baseAPI.get( // <APITestsByTeachers>
@@ -100,7 +97,38 @@ async function getCategories(token: string) {
   return baseAPI.get<{ categories: Category[] }>("/categories", config);
 }
 
+type NewTest = {
+  name: string;
+  pdfUrl: string;
+  categoryId: number;
+  teacherId: number;
+  disciplineId: number;
+}
+
+async function createNewTest(data: NewTest, token: string) {
+  const config = getConfig(token);
+  return baseAPI.post("/tests", data, config);
+}
+
+
+export interface OptionsToCreate {
+  disciplines: {
+    id: number; name: string;
+    teachers: {id: number, name: string}[]
+  }[];
+  categories: {id: number; name: string;}[];
+}
+
+
+async function getOptionsToCreate(token: string) {
+  const config = getConfig(token);
+  console.log(config);
+  return baseAPI.get<{dataToCreate: OptionsToCreate}>("/tests/create/options", config);
+}
+
 const api = {
+  getOptionsToCreate,
+  createNewTest,
   signUp,
   signIn,
   getTestsByDiscipline,

@@ -10,6 +10,7 @@ import Disciplines from "./pages/Disciplines";
 import Instructors from "./pages/Instructors";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
+import Add from "./pages/Add";
 
 function App() {
   const theme = createTheme({
@@ -29,11 +30,9 @@ function App() {
               <Route path="/" element={<SignUp />} />
               <Route path="/login" element={<SignIn />} />
               <Route path="app" element={<MainApp />}>
+                <Route path="/app/adicionar" element={<Add />} />
                 <Route path="/app/disciplinas" element={<Disciplines />} />
-                <Route
-                  path="/app/pessoas-instrutoras"
-                  element={<Instructors />}
-                />
+                <Route path="/app/pessoas-instrutoras" element={<Instructors />}/>
               </Route>
             </Routes>
           </BrowserRouter>

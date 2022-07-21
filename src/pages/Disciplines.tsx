@@ -36,8 +36,6 @@ function Disciplines() {
       console.log(testsData);
 
       setTerms(testsData);
-      // const { data: categoriesData } = await api.getCategories(token);
-      // setCategories(categoriesData.categories);
     }
     loadPage();
   }, [token]);
