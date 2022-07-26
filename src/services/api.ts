@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const baseAPI = axios.create({
-  baseURL: "http://localhost:5000/",
+  baseURL: "https://repoprovas-bootcamp.herokuapp.com/",
 });
 
 interface UserData {
